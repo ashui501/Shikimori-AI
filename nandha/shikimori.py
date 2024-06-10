@@ -17,8 +17,8 @@ developers = [5015417782, 5696053228]
 
 SHIKI_MSG = [
      
-     "Hi there i can't reply that question try asking again.",
-     "Hello something went wrong idk.",
+     "Hey there i can't reply that question try asking again.",
+     "Hello something went wrong  idk.",
      "Hey idk why do you ask such thing",
      "Hmm... well idk.",
      "Please idk maybe ask other",
@@ -45,7 +45,7 @@ async def shiki_react(message):
      try:
        await message.react(
             random.choice(
-                 ['🥰', '❤️', '😁', '🗿']
+                 ['🥰', '❤️', '😁', '🗿' , '💖']
             )
        )
      except:
@@ -85,7 +85,7 @@ def admin_only(func):
             except errors.ChatAdminRequired:
                  return await message.reply_animation(
                       animation='https://graph.org/file/ab7d69f435faf4e8235c8.mp4',
-                      text='**Hello, Make me Admin to activate & deactivate assistant 🥺🥰**'
+                      text='**Hello, Make me Admin to activate & deactivate assistance 🥺🥰**'
                  )
             if user.privileges or user_id == config.shiki_id or user_id in developers:
                  return await func(client, message)
@@ -250,12 +250,12 @@ async def shiki_mode(client, message):
 @shiki.on_message((filters.me|filters.user(developers)) & filters.command('chats', prefixes=['.', '?']))
 async def get_shiki_chats(client, message):
        chats = get_chats()
-       text = '❤️ Shiki Chats: {}\n'
+       text = '❤️ Goku Chats: {}\n'
        for i, chat in enumerate(chats[1]):
            name, chat_id, shiki = chat['name'], chat['chat_id'], chat['chat']
            text += f'{i+1}, {name} - (`{chat_id}`): {shiki}\n'
             
-       shiki_docs = 'ShikiChats.txt'
+       shiki_docs = 'GokuChats.txt'
        text = text.format(len(chats))
        with open(shiki_docs, 'w') as file:
            file.write(text)
